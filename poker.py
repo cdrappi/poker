@@ -195,3 +195,41 @@ def holdem_deal(numhands, sim_hand = False, n = 2, community_cards = 5, deck = [
     pockets.extend([[next(deck) for card in range(n)] for hand in range(hands_to_deal)])
     community = [next(deck) for card in range(community_cards)]
     return pockets, community
+
+def pocket_in_words(pocket):
+    ret = ""
+    ranks = card_ranks(pocket)
+    ret = card_to_words(ranks[0]) + card_to_words(ranks[1])
+    if pocket[0][1] == pocket[1][1]:
+        ret += "s"
+    # We do this to not give "o" to pairs.
+    elif pocket[0][0] != pocket[1][0]:
+        ret += "o"
+    return ret
+
+def list_to_str(l):
+    return " ".join(l)
+
+def str_to_list(s):
+    return s.split()
+
+def card_to_words(card):
+    if card == "A" or card == 14:
+        return "A"
+    elif card == "K" or card == 13:
+        return "K"
+    elif card == "Q" or card == 12:
+        return "Q"
+    elif card == "J" or card == 11:
+        return "J"
+    elif card == "T" or card == 10:
+        return "T"
+    else:
+        return str(card)
+
+def tuple_to_str(t):
+    return ' '.join(map(str,t))
+
+def str_to_tuple(s):
+    l = s.split()
+    return tuple(l)
