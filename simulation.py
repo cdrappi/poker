@@ -3,8 +3,8 @@ import itertools
 import csv
 import time
 
-num_players = 8
-mc = 400
+num_players = 5
+mc = 1000000
 denom_of_frac = 1000
 deck = [r+s for r in '23456789TJQKA' for s in 'SHDC']
 

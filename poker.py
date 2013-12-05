@@ -67,7 +67,7 @@ def card_ranks(hand):
              int(r)
              for r, s in hand]
     ranks.sort(reverse = True)
-    # ace high straights
+    # ace low straights
     if ranks == [14, 5, 4, 3, 2]:
         ranks = [5, 4, 3, 2, 1]
     return ranks
@@ -101,6 +101,9 @@ def deal(numhands, n = 5, deck = [r+s for r in '23456789TJQKA' for s in 'SHDC'])
     random.shuffle(deck)
     deck = iter(deck)
     return [[next(deck) for card in range(n)] for hand in range(numhands)]
+
+
+## Ends Udacity code
 
 hand_names = [
     'High Card',
